@@ -17,7 +17,6 @@ let generatedPasswordEl = document.getElementById("generated-password")
 
 // let passwordLengthEl = document.getElementById("password-length").value
 let passwordLength = 0
-// console.log(passwordLength)
 
 
 
@@ -27,12 +26,15 @@ function generatePassword() {
     characters = []
     randomPass = ''
     //check if atleast one checkbox is checked
-
-    
-    pushCharacterArray()
+    if(!capitalLettersEl.checked && !smallLettersEl.checked && !numbersEl.checked && !symbolsEl.checked){
+        generatedPasswordEl.textContent = randomPass
+        alert("Please choose atleast one character used.")
+        return
+    } else {
+        pushCharacterArray()
+    }
 }
 
-console.log(characters)
 function pushCharacterArray() {
     // if checked store in an array called characters
     if (capitalLettersEl.checked){
