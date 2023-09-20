@@ -2,12 +2,10 @@ let characters = [];
 let randomPass = ''
 
 const capital = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-
 const small = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
 const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"]
+
 
 let capitalLettersEl = document.getElementById("capital-letters")
 let smallLettersEl = document.getElementById("small-letters")
@@ -68,8 +66,13 @@ function generateRandomPassword() {
 }
 
 function copyText(){
-    navigator.clipboard.writeText(randomPass);
-    //dagdag existing class and add a new class with the checked animation, should only play for 2 secs i guess
-    alert("Text has been copied to clipboard!");
+    const overlayEl = document.getElementById('overlay')
+    if(randomPass){
+        navigator.clipboard.writeText(randomPass);
+        overlayEl.style.display = "block"
+        setTimeout(function(){
+            overlayEl.style.display = "none"
+        }, 1000)
+    }
     
 }

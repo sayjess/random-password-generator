@@ -19,10 +19,14 @@
                 <div class="generated-password-container">
                     <span class="generated-password">
                     <p id="generated-password"></p>
-                    <img src="copy-solid.svg" alt="" onclick="copyText()"></span>
+                    <button>
+                        <img src="copy-solid.svg" alt="" onclick="copyText()">
+                    </button>
+                    <div class="overlay" id="overlay">Copied!</div>
+                    </span>
                 </div>
                 <div>
-                    <label for="password-length">Password Length(8 - 20): </label>
+                    <label for="password-length">Password Length(8 - 35): </label>
                     <input type="number" name="password-length" id="password-length" min="8" max="35" value="15">
                 </div>
                 <div class="character-container">
